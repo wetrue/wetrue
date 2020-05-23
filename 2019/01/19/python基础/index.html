@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blogone.tk","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Python基础数据类型  数字类型 字符串类型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python基础数据类型">
+<meta property="og:url" content="http://blogone.tk/2019/01/19/python%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="Sean&#39;s Blog">
+<meta property="og:description" content="Python基础数据类型  数字类型 字符串类型">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wx1.sinaimg.cn/large/d20fc924ly1fzboh9b70uj210z0cq46f.jpg">
+<meta property="og:image" content="https://wx3.sinaimg.cn/large/d20fc924ly1fzbwdgwg0mj21a50gctlm.jpg">
+<meta property="article:published_time" content="2019-01-19T07:30:35.000Z">
+<meta property="article:modified_time" content="2020-05-22T13:23:51.395Z">
+<meta property="article:author" content="Sean">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wx1.sinaimg.cn/large/d20fc924ly1fzboh9b70uj210z0cq46f.jpg">
+
+<link rel="canonical" href="http://blogone.tk/2019/01/19/python%E5%9F%BA%E7%A1%80/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Python基础数据类型 | Sean's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Sean's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Sean的博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blogone.tk/2019/01/19/python%E5%9F%BA%E7%A1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Sean">
+      <meta itemprop="description" content="分享知识，书写心情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sean's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python基础数据类型
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-01-19 15:30:35" itemprop="dateCreated datePublished" datetime="2019-01-19T15:30:35+08:00">2019-01-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-22 21:23:51" itemprop="dateModified" datetime="2020-05-22T21:23:51+08:00">2020-05-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Python基础数据类型"><a href="#Python基础数据类型" class="headerlink" title="Python基础数据类型"></a>Python基础数据类型</h1><blockquote>
+<ol>
+<li>数字类型</li>
+<li>字符串类型</li>
+</ol>
+</blockquote>
+<a id="more"></a>
+<h2 id="数字类型"><a href="#数字类型" class="headerlink" title="数字类型"></a>数字类型</h2><blockquote>
+<p>数字类型(Number)包含<strong>整数(int)</strong>，<strong>浮点数(float)</strong>，<strong>复数(complex)</strong>以及<strong>布尔值(bool)</strong></p>
+</blockquote>
+<h3 id="数值运算操作符"><a href="#数值运算操作符" class="headerlink" title="- 数值运算操作符"></a>- 数值运算操作符</h3><table>
+<thead>
+<tr>
+<th align="center">基本操作符</th>
+<th>二元操作符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">x + y</td>
+<td>x += y</td>
+</tr>
+<tr>
+<td align="center">x - y</td>
+<td>x -= y</td>
+</tr>
+<tr>
+<td align="center"><!--more--> x * y</td>
+<td>x *= y</td>
+</tr>
+<tr>
+<td align="center">x / y</td>
+<td>x /= y</td>
+</tr>
+<tr>
+<td align="center">x // y</td>
+<td>x //= y</td>
+</tr>
+<tr>
+<td align="center">x % y</td>
+<td>x %= y</td>
+</tr>
+<tr>
+<td align="center">x ** y</td>
+<td>x **= y</td>
+</tr>
+<tr>
+<td align="center">+ x</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">- x</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="一些以函数形式提供的运算功能"><a href="#一些以函数形式提供的运算功能" class="headerlink" title="- 一些以函数形式提供的运算功能"></a>- 一些以函数形式提供的运算功能</h3><table>
+<thead>
+<tr>
+<th align="center">函数及使用</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">pow(x, y)</td>
+<td><code>x</code>的<code>y</code>次方</td>
+</tr>
+<tr>
+<td align="center">abs(x)</td>
+<td><code>x</code>的绝对值</td>
+</tr>
+<tr>
+<td align="center">divmod(x, y)</td>
+<td>商余,<code>(x//y, x%y)</code>同时输出商和余数</td>
+</tr>
+<tr>
+<td align="center">pow(x, y [, z])</td>
+<td>幂余,<code>(x**y)%z</code>,<code>[..]</code>表示参数<code>z</code>可省略</td>
+</tr>
+<tr>
+<td align="center">round(x [, d])</td>
+<td>四舍五入,<code>d</code>是保留小数位数，默认为<code>0</code></td>
+</tr>
+<tr>
+<td align="center">max(x1, x2, …, xn)</td>
+<td>返回最大值</td>
+</tr>
+<tr>
+<td align="center">min(x1, x2, …, xn)</td>
+<td>返回最小值</td>
+</tr>
+<tr>
+<td align="center">int(x)</td>
+<td>将<code>x</code>转换为整数，舍弃小数部分</td>
+</tr>
+<tr>
+<td align="center">float(x)</td>
+<td>将<code>x</code>转换为浮点数，增加小数部分</td>
+</tr>
+<tr>
+<td align="center">complex(x)</td>
+<td>将<code>x</code>转换为复数，增加虚数部分</td>
+</tr>
+<tr>
+<td align="center">&lt;a&gt; e &lt;b&gt;</td>
+<td>科学计数法，表示<code>a*10</code>的b次方</td>
+</tr>
+<tr>
+<td align="center">x.real</td>
+<td>返回复数的实部</td>
+</tr>
+<tr>
+<td align="center">x.imag</td>
+<td>返回复数的虚部</td>
+</tr>
+</tbody></table>
+<h2 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h2><blockquote>
+<p>字符串(String)是指由0个或多个字符组成的有序字符序列</p>
+</blockquote>
+<h3 id="字符串的-2类共4种-表示方法"><a href="#字符串的-2类共4种-表示方法" class="headerlink" title="- 字符串的 2类共4种 表示方法"></a>- 字符串的 2类共4种 表示方法</h3><ul>
+<li>由一对单引号或双引号表示，仅表示单行字符串<br>如： <code>&quot;C&quot;或者&#39;C&#39;</code></li>
+<li>由一对三单引号或三双引号表示，可表示多行字符串<br>如：<code>&#39;&#39;&#39;Hello</code><br>　　　　　　　<code>World&#39;&#39;&#39;</code> (这种方式也可以当做注释来使用)</li>
+</ul>
+<h3 id="字符串的序号"><a href="#字符串的序号" class="headerlink" title="- 字符串的序号"></a>- 字符串的序号</h3><p><img src="https://wx1.sinaimg.cn/large/d20fc924ly1fzboh9b70uj210z0cq46f.jpg" alt="字符串的序号">  </p>
+<ul>
+<li>索引：返回字符串中单个字符　　<strong>&lt;字符串&gt;[序号]</strong><br>如：<code>TempStr[-1]</code>  </li>
+<li>切片：返回字符串中一段字符子串　　<strong>&lt;字符串&gt;[开头: 结尾]</strong><br>如：<code>TempStr[0:-1]</code></li>
+</ul>
+<h3 id="切片的高级用法"><a href="#切片的高级用法" class="headerlink" title="- 切片的高级用法"></a>- 切片的高级用法</h3><ul>
+<li>使用<strong>[开头: 结尾: 步长]</strong>对字符串切片<ul>
+<li><strong>&lt;字符串&gt;[M: N]</strong> ，<strong>M</strong> 缺失表示<strong>至开头</strong>，<strong>N</strong> 缺失表示<strong>至结尾</strong></li>
+<li><strong>&lt;字符串&gt;[M: N: K]</strong>, 根据步长 <strong>K</strong> 对字符串切片</li>
+</ul>
+</li>
+</ul>
+<h3 id="字符串的特殊字符"><a href="#字符串的特殊字符" class="headerlink" title="- 字符串的特殊字符"></a>- 字符串的特殊字符</h3><ul>
+<li>转义符“ <strong><code>\</code></strong> ”<ul>
+<li>转义符表达特定字符本意</li>
+<li>转义符形成一些组合，表达一些不可打印的含义<br>如：<code>&quot;\b&quot;</code>回退 <code>&quot;\n&quot;</code>换行(光标移动到下行首) <code>&quot;\r&quot;</code>回车(光标移动到本行首)  </li>
+</ul>
+</li>
+</ul>
+<h3 id="字符串操作符"><a href="#字符串操作符" class="headerlink" title="- 字符串操作符"></a>- 字符串操作符</h3><table>
+<thead>
+<tr>
+<th align="center">操作符及使用</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">x + y</td>
+<td>连接两个字符串<code>x</code>和<code>y</code></td>
+</tr>
+<tr>
+<td align="center">n * x <em>或</em> x * n</td>
+<td>复制<code>n</code>次字符串<code>x</code></td>
+</tr>
+<tr>
+<td align="center">x in s</td>
+<td><code>r</code>如果<code>x</code>是<code>s</code>的子串，返回<code>True</code>，否则返回<code>False</code></td>
+</tr>
+</tbody></table>
+<h3 id="字符串处理函数"><a href="#字符串处理函数" class="headerlink" title="- 字符串处理函数"></a>- 字符串处理函数</h3><table>
+<thead>
+<tr>
+<th align="center">函数及使用</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">len(x)</td>
+<td>长度，返回字符串<code>x</code>的长度</td>
+</tr>
+<tr>
+<td align="center">str(x)</td>
+<td>任意类型<code>x</code>转换为字符串类型</td>
+</tr>
+<tr>
+<td align="center">eval(x)</td>
+<td>把字符串类型转化为其他类型(去掉引号)</td>
+</tr>
+<tr>
+<td align="center">hex(x) <em>或</em> oct(x)</td>
+<td>整数<code>x</code>的十六进制或八进制小写形式字符串</td>
+</tr>
+<tr>
+<td align="center">chr(u)</td>
+<td>将Unicode转换为字符</td>
+</tr>
+<tr>
+<td align="center">ord(x)</td>
+<td>将字符转换为Unicode编码</td>
+</tr>
+</tbody></table>
+<h3 id="实例-1"><a href="#实例-1" class="headerlink" title="- 实例 1"></a>- 实例 1</h3><ul>
+<li>获取星期字符串  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">weekStr = <span class="string">"一二三四五六日"</span></span><br><span class="line">weekID = eval(input(<span class="string">"请输入1-7："</span>))  </span><br><span class="line">print(<span class="string">"星期%s"</span> % (weekStr[weekID - <span class="number">1</span>]))</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="字符串处理方法"><a href="#字符串处理方法" class="headerlink" title="- 字符串处理方法"></a>- 字符串处理方法</h3><ul>
+<li>“方法”特指 <code>&lt;a&gt;.&lt;b&gt;()</code> 风格中的函数 <code>&lt;b&gt;()</code>  </li>
+<li>方法本身也是函数，但与 <code>&lt;a&gt;</code> 有关，<code>&lt;a&gt;.&lt;b&gt;()</code> 风格使用</li>
+<li>字符串及变量也是 <code>&lt;a&gt;</code>，存在一些方法</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">方法及使用</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">str.lower() <em>或</em> str.upper()</td>
+<td>返回字符串的副本，全部字符小写或大写<br><code>&quot;AbCdEfGh&quot;.lower()</code>结果为<code>&quot;abcdefgh&quot;</code></td>
+</tr>
+<tr>
+<td align="center">str.split(sep=None)</td>
+<td>返回一个列表，由<code>str</code>根据<code>sep</code>被分隔的部分组成<br><code>&quot;A,B,C&quot;.split(&quot;,&quot;)</code>结果为<code>[&#39;A&#39;,&#39;B&#39;,&#39;C&#39;]</code></td>
+</tr>
+<tr>
+<td align="center">str.count(sub)</td>
+<td>返回子串<code>sub</code>在<code>str</code>中出现的次数<br><code>&quot;a apple a day&quot;.count(&quot;a&quot;)</code>结果为<code>4</code></td>
+</tr>
+<tr>
+<td align="center">str.replace(old,new)</td>
+<td>返回字符串<code>str</code>副本，所有<code>old</code>子串被替换为<code>new</code><br><code>&quot;python&quot;.replace(&quot;n&quot;,&quot;n123.io&quot;)</code>结果为  <code>&quot;python123.io&quot;</code></td>
+</tr>
+<tr>
+<td align="center">str.center(width[,fillchar])</td>
+<td>字符串<code>str</code>根据宽度<code>width</code>居中，<code>fillchar</code>可选<br><code>&quot;python&quot;.center(20,&quot;=&quot;)</code>结果为 <code>&quot;=======python=======&quot;</code></td>
+</tr>
+<tr>
+<td align="center">str.strip(chars)</td>
+<td>从<code>str</code>中去掉在其左侧和右侧<code>chars</code>中列出的字符<br><code>&quot;= python= &quot;.strip(&quot; =np&quot;)</code>结果为<code>&quot;ytho&quot;</code></td>
+</tr>
+<tr>
+<td align="center">str.join(iter)</td>
+<td>在<code>iter</code>变量除最后元素外每个元素后增加一个<code>str</code><br><code>&quot;,&quot;.join(&quot;12345&quot;)</code>结果为<code>&quot;1,2,3,4,5&quot;</code>主要用于字符串分隔等</td>
+</tr>
+</tbody></table>
+<h3 id="字符串的格式化"><a href="#字符串的格式化" class="headerlink" title="- 字符串的格式化"></a>- 字符串的格式化</h3><blockquote>
+<p>.format()方法 </p>
+</blockquote>
+<p><img src="https://wx3.sinaimg.cn/large/d20fc924ly1fzbwdgwg0mj21a50gctlm.jpg" alt="image"></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2000/01/01/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/02/07/%E5%87%BD%E6%95%B0%E5%92%8C%E4%BB%A3%E7%A0%81%E5%A4%8D%E7%94%A8/" rel="next" title="函数和代码复用">
+      函数和代码复用 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python基础数据类型"><span class="nav-number">1.</span> <span class="nav-text">Python基础数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数字类型"><span class="nav-number">1.1.</span> <span class="nav-text">数字类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数值运算操作符"><span class="nav-number">1.1.1.</span> <span class="nav-text">- 数值运算操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一些以函数形式提供的运算功能"><span class="nav-number">1.1.2.</span> <span class="nav-text">- 一些以函数形式提供的运算功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串类型"><span class="nav-number">1.2.</span> <span class="nav-text">字符串类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串的-2类共4种-表示方法"><span class="nav-number">1.2.1.</span> <span class="nav-text">- 字符串的 2类共4种 表示方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串的序号"><span class="nav-number">1.2.2.</span> <span class="nav-text">- 字符串的序号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切片的高级用法"><span class="nav-number">1.2.3.</span> <span class="nav-text">- 切片的高级用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串的特殊字符"><span class="nav-number">1.2.4.</span> <span class="nav-text">- 字符串的特殊字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串操作符"><span class="nav-number">1.2.5.</span> <span class="nav-text">- 字符串操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串处理函数"><span class="nav-number">1.2.6.</span> <span class="nav-text">- 字符串处理函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例-1"><span class="nav-number">1.2.7.</span> <span class="nav-text">- 实例 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串处理方法"><span class="nav-number">1.2.8.</span> <span class="nav-text">- 字符串处理方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串的格式化"><span class="nav-number">1.2.9.</span> <span class="nav-text">- 字符串的格式化</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Sean"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Sean</p>
+  <div class="site-description" itemprop="description">分享知识，书写心情</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wetrue" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wetrue" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/23131@outlook.com" title="E-Mail → 23131@outlook.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sean</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+<!-- 小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<!-- 动态背景 -->
+<script type="text/javascript" src="/js/src/particle.js"></script>
+
+</body>
+</html>
